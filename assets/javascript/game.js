@@ -1,13 +1,13 @@
-$( document ).ready(function() {
-
+$( document ).ready(function() {    
     // Vars
+    var startGame;
+    var Counter = 90;
     var score = answered + unanswered;
     var correct = 0;
-    var wrong = 0;
+    var incorrect = 0;
     var unanswered = 0;
     var answered = 0;
-
-    var timer = 0;
+    var timer = 60;
 
 
     // Q & A's
@@ -21,7 +21,7 @@ $( document ).ready(function() {
     console.log(quest1);
 
     var quest2 = {
-        question: "One of the largest volcanos in our solar system-if not the largest-isnamed Olympus Mons. This volcano is located on:",
+        question: "One of the largest volcanos in our solar system-if not the largest-is named Olympus Mons. This volcano is located on:",
         answer1: ["Jupiter's moon Callisto", 0],
         answer2: ["Venus", 0],
         answer3: ["Saturn's moon Titan", 0],
@@ -30,7 +30,7 @@ $( document ).ready(function() {
         console.log(quest2);
 
     var quest3 = {
-        question: "The andromeda Galaxy is which of the following types of galaxies?",
+        question: "The Andromeda Galaxy is which of the following types of galaxies?",
         answer1: ["elliptical", 0],
         answer2: ["spiral", 1],
         answer3: ["barred-spiral", 0],
@@ -52,7 +52,7 @@ $( document ).ready(function() {
         answer1: ["equal to the combined masses of the earth and Mars", 0],
         answer2: ["equal to the combined masses of Saturn and Pluto", 0],
         answer3: ["equal to the combined masses of Saturn, Neptune and Uranus", 0],
-        answer4: ["equal to the combined masses of Saturn, Neptune and Uranus", 1]
+        answer4: ["equal to the combined masses of all planets", 1]
         };
         console.log(quest5);
 
@@ -73,4 +73,34 @@ $( document ).ready(function() {
         answer4: ["away from the sun", 1]
         };
         console.log(quest7);
-});        
+
+    $("#startButton").on('click', function() {
+        $(this).hide();
+        $('#timer').show();
+    });
+
+
+//function timer {
+//pop up after button goes away
+
+
+//};
+
+//function answerQuestions {
+ //loop throw the array of questions, but dont move on until an answer is recorded
+ //if answer is right
+ //if answer is wrong
+
+    
+//};
+
+//function endGame {
+
+
+
+//};
+
+//function reset {
+
+
+});
