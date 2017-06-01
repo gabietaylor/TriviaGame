@@ -1,13 +1,12 @@
 $( document ).ready(function() {    
     // Vars
     var startGame;
-    var Counter = 90;
     var score = answered + unanswered;
-    var correct = 0;
+    var correctAnswers = [];
     var incorrect = 0;
     var unanswered = 0;
     var answered = 0;
-    var timer = 60;
+    var timer = 90;
 
 
     // Q & A's
@@ -77,14 +76,27 @@ $( document ).ready(function() {
     $("#startButton").on('click', function() {
         $(this).hide();
         $('#timer').show();
+        function startTimer(duration, display) {
+    var timer = duration, seconds;
+    setInterval(function () {
+        seconds = parseInt(timer % 60, 10);
+
+        seconds = seconds < 10 ? "6" + seconds : seconds;
+
+        display.text(seconds);
+
+        if (--timer < 0) {
+            timer = duration;
+         }
+        }, 1000);
+    }
+
+    jQuery(function ($) {
+        var oneMinute = 60,
+            display = $('#timer');
+        startTimer(oneMinute, display);
     });
-
-
-//function timer {
-//pop up after button goes away
-
-
-//};
+        });
 
 //function answerQuestions {
  //loop throw the array of questions, but dont move on until an answer is recorded
