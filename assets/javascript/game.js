@@ -1,4 +1,43 @@
-$( document ).ready(function() {    
+    // other vars created so I can fix the array problem
+/*var bankOfQuestions = {
+         question1: "The biggest asteroid known is:",
+         choices1: ["Vesta", "Icarus", "Ceres", "Eros"],
+         answer1: "Ceres"
+         },
+         {
+          question2: "One of the largest volcanos in our solar system-if not the largest-is named Olympus Mons. This volcano is located on:",
+          choices2: ["Jupiter's moon Callisto", "Venus", "Saturn's moon Titan", "Mars"],
+          answer2: "Mars"
+         },
+         }
+          question3: "The Andromeda Galaxy is which of the following types of galaxies?",
+          choices3: ["elliptical", "spiral", "barred-spiral", "irregular"],
+          answer3: "spiral"
+         },
+         {
+         question4: "Heliocentric (pron: he-lee-o-sen-trik) means around:",
+         choices4: ["Jupiter", "The Moon", "The Sun", "Neptune"],
+         answer4: "The Sun"
+         },
+         }
+         question5: "The planet Jupiter has a mass that is:",
+          choices5: ["equal to the combined masses of the earth and Mars", "equal to the combined masses of Saturn and Pluto", "equal to the combined masses of Saturn", "Neptune and Uranus, equal to the combined masses of all planets"],
+          answer5: "equal to the combined masses of all planets"
+          },
+          }
+         question6: "A typical galaxy, such as our Milky Way galaxy, contains how many billion stars? Is it approximately:",
+         choices6: ["10 billion", "40 billion", "200 billion", "800 billion"],
+         answer6: "200 billion"
+         },
+         {
+         question7: "A comet's tail points in which direction?",
+         choices7: ["toward the sun", "toward the earth", "behind the comet in its orbit", "away from the sun"]
+         answer7: "away from the sun"
+          }
+          ]
+ });*/
+    // Q & A's change them because it will be easier to string them tpgether for html and logic for tracker
+    $( document ).ready(function() {    
     // Vars
     var incorrect = 0;
     var correct = 0;
@@ -58,8 +97,7 @@ $( document ).ready(function() {
     var printThis = "";
     for(var i = 0; i < questionsAnswers.length; i++){
         for(var i = 0; i < choices.length; i++){
-            questionsAnswers[i - 1] = questionsAnswers[i];
-        printThis += "<br>" + questionsAnswers[0][0] + "<br>" + "<br>" + 
+        printThis += "<br>" + questionsAnswers[i] + "<br>" + "<br>" + 
         ('<label><input type="radio" name="choices" value="' + choices[i] + '" /> ' + choices[i] + '</label>') + "<br>";
     }
     }
@@ -68,7 +106,7 @@ $( document ).ready(function() {
     document.getElementById('questions').innerHTML = htmlOnPage();
     });
 
-//either make radio btns or make the choices clickable then once chosen non clickable
+//so i need to add radio btns to each choice but I have to change my vars 
 
     $(".doneButton").on('click', function() {
         $(this).hide();
