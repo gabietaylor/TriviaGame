@@ -1,18 +1,19 @@
 $( document ).ready(function() {    
     // Vars
     var incorrect = 0;
-    var unanswered = 0;
     var correct = 0;
-    var total;
+    var unansweredQuestions = 0;
+    var answeredQuestions = 0;
+    var html;
     // Q & A's change them because it will be easier to string them tpgether for html and logic for tracker
-    var question = ["The biggest asteroid known is:", 
+    var questions = ["The biggest asteroid known is:", 
                     "One of the largest volcanos in our solar system-if not the largest-is named Olympus Mons. This volcano is located on:",
                     "The Andromeda Galaxy is which of the following types of galaxies?",
                     "Heliocentric (pron: he-lee-o-sen-trik) means around:",
                     "The planet Jupiter has a mass that is:",
                     "A typical galaxy, such as our Milky Way galaxy, contains how many billion stars? Is it approximately:",
                     "A comet's tail points in which direction?"];
-                    console.log(question);
+                    //console.log(question);
     var answers = ["Vesta, Icarus, Ceres, Eros",
                    "Jupiter's moon Callisto, Venus, Saturn's moon Titan, Mars",
                    "elliptical, spiral, barred-spiral, irregular",
@@ -20,7 +21,7 @@ $( document ).ready(function() {
                    "equal to the combined masses of the earth and Mars, equal to the combined masses of Saturn and Pluto, equal to the combined masses of Saturn, Neptune and Uranus, equal to the combined masses of all planets",
                    "10 billion, 40 billion, 200 billion, 800 billion",
                    "toward the sun, toward the earth, behind the comet in its orbit, away from the sun"];
-                   console.log(answers);
+                   //console.log(answers);
     var correctAnswers = ["Ceres", 
                           "Mars", 
                           "spiral", 
@@ -28,7 +29,7 @@ $( document ).ready(function() {
                           "equal to the combined masses of all planets", 
                           "200 billion",
                           "away from the sun"];
-        console.log(correctAnswers);
+                    //console.log(correctAnswers);
     //starts game, hides button, then start timer
     $("#startButton").on('click', function() {
         $(this).hide();
@@ -51,38 +52,32 @@ $( document ).ready(function() {
         startTimer(oneMinute, display);
     });
         });
-
+    //put html on page
     function htmlOnPage() {
-         
+    var printThis = "";
+    for(var i = 0; i < questions.length; i++){
+        printThis += "<br>"+ questions[i];
     }
+    for(var i = 0; i < answers.length; i++){
+        printThis += "<br>"+ answers[i];
+    }
+    return printThis;
+}
+    document.getElementById('questions').innerHTML = htmlOnPage();
 
+    //loss when timer runs out
     function lossToTimeout() {
 
     }
-
-    function win() {
-        
+    //when all are answered
+    function answers() { 
+        //if/else statements depending on if answered correctly
     }
-
-    function loss() {
-        
-    }
-
-
-
- //loop throw the array of questions, but dont move on until an answer is recorded
- //if answer is right
- //if answer is wrong
-
     
-
 //function endGame {
 
 
 
 //};
-
-//function reset {
-
 
 });
