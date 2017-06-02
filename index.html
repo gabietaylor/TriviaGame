@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Bootstrap -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <!-- jQuery Link -->
         <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
     <!-- Javascript -->
@@ -14,26 +14,26 @@
 
 
 </head>
-<!-- <body background = "assets/images/bckgnd.jpg"> -->
+<body background = "assets/images/bckgnd.jpg" class="text-center"/>
 
 <body>
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="text-center ">Astronomy Trivia</h1>
+                <strong><h1 class="bg-info">Astronomy Trivia</h1></strong>
 
         <div class="row">
-            <button type="button" class="btn btn-default" id="startButton">Let's Begin</button>
-            <div class="col-lg-12" id="timer"></div>
+            <button type="button" class="btn btn-default .col-xs-6 .col-md-4" id="startButton">Let's Begin</button>
         </div>
 
         <div class="row">
-            <div class="col-lg-12" id="total">Am I Hidden?!</div>
+            <div class="col-lg-12 bg-info" id="total"></div>
         </div>
 
-        <div class="row">
+        <div class="row bg-info">
+            <strong><div class="col-lg-12" id="timer"></div></strong>
             <div class="col-lg-12" id="questions"></div>
-            <button type="button" class="btn btn-success doneButton">Done!</button>
+            <button type="button" class="btn btn-success doneButton .col-xs-6 .col-md-4">Done!</button>
         </div>
 
             </div>

@@ -2,9 +2,10 @@ $( document ).ready(function() {
     // Vars
     var incorrect = 0;
     var correct = 0;
-    var unansweredQuestions = 0;
-    var answeredQuestions = 0;
     var html;
+    var output = [];
+    var answers;
+
     // Q & A's change them because it will be easier to string them tpgether for html and logic for tracker
     var questions = ["The biggest asteroid known is:", 
                     "One of the largest volcanos in our solar system-if not the largest-is named Olympus Mons. This volcano is located on:",
@@ -63,7 +64,7 @@ $( document ).ready(function() {
     var printThis = "";
     for(var i = 0; i < questions.length; i++){
         for(var i = 0; i < answers.length; i++){
-        printThis += "<br>" + "<br>" + questions[i] + "<br>" + "<br>" + answers[i] + "<br>";
+        printThis += "<br>" + questions[i] + "<br>" + "<br>" + answers[i] + "<br>";
     }
     }
     return printThis;
@@ -71,20 +72,26 @@ $( document ).ready(function() {
     document.getElementById('questions').innerHTML = htmlOnPage();
     });
 
-    //loss when timer runs out
-    function lossToTimeout() {
-
-    }
+//either make radio btns or make the answers clickable then once chosen non clickable
 
     $(".doneButton").on('click', function() {
         $(this).hide();
         $('#questions').hide();
         $('#total').show();
-    //when all are answered before timer runs out
+        $('#timer').hide();
     function results() { 
-        
+        //piece together the logic behind your tally
+        //if(userAnswer===correctAnswers){
+            //correct++;
+        //}
+    var tally = "";
+    for(var i = 0; i < answers.length; i++){
+        tally = "Incorrect: " + incorrect + "<br>" + "Correct: " + correct + "<br>";
     }
-    });
+    return tally;
+}
+document.getElementById('total').innerHTML = results();
+    });        
 
 
 });
