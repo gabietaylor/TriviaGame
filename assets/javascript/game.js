@@ -3,34 +3,28 @@ $( document ).ready(function() {
     var incorrect = 0;
     var correct = 0;
     var html;
-    var output = [];
-    var answers;
 
     // Q & A's change them because it will be easier to string them tpgether for html and logic for tracker
-    var questions = ["The biggest asteroid known is:", 
-                    "One of the largest volcanos in our solar system-if not the largest-is named Olympus Mons. This volcano is located on:",
-                    "The Andromeda Galaxy is which of the following types of galaxies?",
-                    "Heliocentric (pron: he-lee-o-sen-trik) means around:",
-                    "The planet Jupiter has a mass that is:",
-                    "A typical galaxy, such as our Milky Way galaxy, contains how many billion stars? Is it approximately:",
-                    "A comet's tail points in which direction?"];
-                    //console.log(question);
-    var answers = ["Vesta, Icarus, Ceres, Eros",
-                   "Jupiter's moon Callisto, Venus, Saturn's moon Titan, Mars",
-                   "elliptical, spiral, barred-spiral, irregular",
-                   "Jupiter, The Moon, The Sun, Neptune",
-                   "equal to the combined masses of the earth and Mars, equal to the combined masses of Saturn and Pluto, equal to the combined masses of Saturn, Neptune and Uranus, equal to the combined masses of all planets",
-                   "10 billion, 40 billion, 200 billion, 800 billion",
-                   "toward the sun, toward the earth, behind the comet in its orbit, away from the sun"];
-                   //console.log(answers);
-    var correctAnswers = ["Ceres", 
-                          "Mars", 
-                          "spiral", 
-                          "The Sun", 
-                          "equal to the combined masses of all planets", 
-                          "200 billion",
-                          "away from the sun"];
-                    //console.log(correctAnswers);
+    var questionsAnswers = [
+                           ["The biggest asteroid known is:", "Ceres"], 
+                           ["One of the largest volcanos in our solar system-if not the largest-is named Olympus Mons. This volcano is located on:", "Mars"], 
+                           ["The Andromeda Galaxy is which of the following types of galaxies?", "spiral"],
+                           ["Heliocentric (pron: he-lee-o-sen-trik) means around:", "The Sun"],
+                           ["The planet Jupiter has a mass that is:", "equal to the combined masses of all planets"],
+                           ["A typical galaxy, such as our Milky Way galaxy, contains how many billion stars? Is it approximately:", "200 billion"],
+                           ["A comet's tail points in which direction?", "away from the sun"]
+                           ];
+                    //console.log(questionsAnswers);
+    var choices =  [
+                   ["Vesta", "Icarus", "Ceres", "Eros"],
+                   ["Jupiter's moon Callisto", "Venus", "Saturn's moon Titan", "Mars"],
+                   ["elliptical", "spiral", "barred-spiral", "irregular"],
+                   ["Jupiter", "The Moon", "The Sun", "Neptune"],
+                   ["equal to the combined masses of the earth and Mars", "equal to the combined masses of Saturn and Pluto", "equal to the combined masses of Saturn", "Neptune and Uranus, equal to the combined masses of all planets"],
+                   ["10 billion", "40 billion", "200 billion", "800 billion"],
+                   ["toward the sun", "toward the earth", "behind the comet in its orbit", "away from the sun"]
+                   ];
+                   //console.log(choices);
     //starts game, hides button, then start timer
         $('#total').hide();
         $('.doneButton').hide();
@@ -62,9 +56,11 @@ $( document ).ready(function() {
     //put html on page
     function htmlOnPage() {
     var printThis = "";
-    for(var i = 0; i < questions.length; i++){
-        for(var i = 0; i < answers.length; i++){
-        printThis += "<br>" + questions[i] + "<br>" + "<br>" + answers[i] + "<br>";
+    for(var i = 0; i < questionsAnswers.length; i++){
+        for(var i = 0; i < choices.length; i++){
+
+        printThis += "<br>" + questionsAnswers[i] + "<br>" + "<br>" + 
+        ('<label><input type="radio" name="choices" value="' + choices[i] + '" /> ' + choices[i] + '</label>') + "<br>";
     }
     }
     return printThis;
@@ -72,7 +68,7 @@ $( document ).ready(function() {
     document.getElementById('questions').innerHTML = htmlOnPage();
     });
 
-//either make radio btns or make the answers clickable then once chosen non clickable
+//either make radio btns or make the choices clickable then once chosen non clickable
 
     $(".doneButton").on('click', function() {
         $(this).hide();
@@ -80,12 +76,14 @@ $( document ).ready(function() {
         $('#total').show();
         $('#timer').hide();
     function results() { 
+
         //piece together the logic behind your tally
-        //if(userAnswer===correctAnswers){
+        //if(userAnswer===correctchoices){
             //correct++;
         //}
+
     var tally = "";
-    for(var i = 0; i < answers.length; i++){
+    for(var i = 0; i < choices.length; i++){
         tally = "Incorrect: " + incorrect + "<br>" + "Correct: " + correct + "<br>";
     }
     return tally;
