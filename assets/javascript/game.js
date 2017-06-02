@@ -58,8 +58,8 @@ $( document ).ready(function() {
     var printThis = "";
     for(var i = 0; i < questionsAnswers.length; i++){
         for(var i = 0; i < choices.length; i++){
-
-        printThis += "<br>" + questionsAnswers[i] + "<br>" + "<br>" + 
+            questionsAnswers[i - 1] = questionsAnswers[i];
+        printThis += "<br>" + questionsAnswers[0][0] + "<br>" + "<br>" + 
         ('<label><input type="radio" name="choices" value="' + choices[i] + '" /> ' + choices[i] + '</label>') + "<br>";
     }
     }
