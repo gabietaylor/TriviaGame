@@ -31,8 +31,11 @@ $( document ).ready(function() {
                           "away from the sun"];
                     //console.log(correctAnswers);
     //starts game, hides button, then start timer
+        $('#total').hide();
+        $('.doneButton').hide();
     $("#startButton").on('click', function() {
         $(this).hide();
+        $('.doneButton').show();
         $('#timer').show();
         //timer counting down to 60
         function startTimer(duration, display) {
@@ -51,26 +54,37 @@ $( document ).ready(function() {
             display = $('#timer');
         startTimer(oneMinute, display);
     });
-        });
+        
     //hide the Q & A's till button is pressed
-    $("#startButton").on('click', function() {
-        $(this).hide();
+    
         $('#questions').show();
     //put html on page
     function htmlOnPage() {
     var printThis = "";
     for(var i = 0; i < questions.length; i++){
         for(var i = 0; i < answers.length; i++){
-        printThis += "<br>"+ questions[i] + "<br>"+ answers[i];
+        printThis += "<br>" + "<br>" + questions[i] + "<br>" + "<br>" + answers[i] + "<br>";
     }
     }
     return printThis;
 }
     document.getElementById('questions').innerHTML = htmlOnPage();
     });
+
     //loss when timer runs out
     function lossToTimeout() {
 
     }
+
+    $(".doneButton").on('click', function() {
+        $(this).hide();
+        $('#questions').hide();
+        $('#total').show();
+    //when all are answered before timer runs out
+    function results() { 
+        
+    }
+    });
+
 
 });
