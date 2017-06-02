@@ -42,28 +42,31 @@
     var incorrect = 0;
     var correct = 0;
     var html;
-
     // Q & A's change them because it will be easier to string them tpgether for html and logic for tracker
-    var questionsAnswers = [
-                           ["The biggest asteroid known is:", "Ceres"], 
-                           ["One of the largest volcanos in our solar system-if not the largest-is named Olympus Mons. This volcano is located on:", "Mars"], 
-                           ["The Andromeda Galaxy is which of the following types of galaxies?", "spiral"],
-                           ["Heliocentric (pron: he-lee-o-sen-trik) means around:", "The Sun"],
-                           ["The planet Jupiter has a mass that is:", "equal to the combined masses of all planets"],
-                           ["A typical galaxy, such as our Milky Way galaxy, contains how many billion stars? Is it approximately:", "200 billion"],
-                           ["A comet's tail points in which direction?", "away from the sun"]
-                           ];
-                    //console.log(questionsAnswers);
-    var choices =  [
-                   ["Vesta", "Icarus", "Ceres", "Eros"],
-                   ["Jupiter's moon Callisto", "Venus", "Saturn's moon Titan", "Mars"],
-                   ["elliptical", "spiral", "barred-spiral", "irregular"],
-                   ["Jupiter", "The Moon", "The Sun", "Neptune"],
-                   ["equal to the combined masses of the earth and Mars", "equal to the combined masses of Saturn and Pluto", "equal to the combined masses of Saturn", "Neptune and Uranus, equal to the combined masses of all planets"],
-                   ["10 billion", "40 billion", "200 billion", "800 billion"],
-                   ["toward the sun", "toward the earth", "behind the comet in its orbit", "away from the sun"]
-                   ];
-                   //console.log(choices);
+     var question = ["The biggest asteroid known is:", 
+                     "One of the largest volcanos in our solar system-if not the largest-is named Olympus Mons. This volcano is located on:",
+                     "The Andromeda Galaxy is which of the following types of galaxies?",
+                     "Heliocentric (pron: he-lee-o-sen-trik) means around:",
+                     "The planet Jupiter has a mass that is:",
+                     "A typical galaxy, such as our Milky Way galaxy, contains how many billion stars? Is it approximately:",
+                     "A comet's tail points in which direction?"];
+                     console.log(question);
+     var choices = ["Vesta, Icarus, Ceres, Eros",
+                    "Jupiter's moon Callisto, Venus, Saturn's moon Titan, Mars",
+                    "elliptical, spiral, barred-spiral, irregular",
+                    "Jupiter, The Moon, The Sun, Neptune",
+                    "equal to the combined masses of the earth and Mars, equal to the combined masses of Saturn and Pluto, equal to the combined masses of Saturn, Neptune and Uranus, equal to the combined masses of all planets",
+                    "10 billion, 40 billion, 200 billion, 800 billion",
+                    "toward the sun, toward the earth, behind the comet in its orbit, away from the sun"];
+                    console.log(choices);
+     var correctAnswers = ["Ceres", 
+                           "Mars", 
+                           "spiral", 
+                           "The Sun", 
+                           "equal to the combined masses of all planets", 
+                           "200 billion",
+                           "away from the sun"];
+         console.log(correctAnswers); 
     //starts game, hides button, then start timer
         $('#total').hide();
         $('.doneButton').hide();
@@ -95,9 +98,9 @@
     //put html on page
     function htmlOnPage() {
     var printThis = "";
-    for(var i = 0; i < questionsAnswers.length; i++){
+    for(var i = 0; i < question.length; i++){
         for(var i = 0; i < choices.length; i++){
-        printThis += "<br>" + questionsAnswers[i] + "<br>" + "<br>" + 
+        printThis += "<br>" + question[i] + "<br>" + "<br>" + 
         ('<label><input type="radio" name="choices" value="' + choices[i] + '" /> ' + choices[i] + '</label>') + "<br>";
     }
     }
@@ -106,7 +109,7 @@
     document.getElementById('questions').innerHTML = htmlOnPage();
     });
 
-//so i need to add radio btns to each choice but I have to change my vars 
+//either make radio btns or make the choices clickable then once chosen non clickable
 
     $(".doneButton").on('click', function() {
         $(this).hide();
