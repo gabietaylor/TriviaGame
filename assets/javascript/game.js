@@ -52,32 +52,25 @@ $( document ).ready(function() {
         startTimer(oneMinute, display);
     });
         });
+    //hide the Q & A's till button is pressed
+    $("#startButton").on('click', function() {
+        $(this).hide();
+        $('#questions').show();
     //put html on page
     function htmlOnPage() {
     var printThis = "";
     for(var i = 0; i < questions.length; i++){
-        printThis += "<br>"+ questions[i];
+        for(var i = 0; i < answers.length; i++){
+        printThis += "<br>"+ questions[i] + "<br>"+ answers[i];
     }
-    for(var i = 0; i < answers.length; i++){
-        printThis += "<br>"+ answers[i];
     }
     return printThis;
 }
     document.getElementById('questions').innerHTML = htmlOnPage();
-
+    });
     //loss when timer runs out
     function lossToTimeout() {
 
     }
-    //when all are answered
-    function answers() { 
-        //if/else statements depending on if answered correctly
-    }
-    
-//function endGame {
-
-
-
-//};
 
 });
